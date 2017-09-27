@@ -1,0 +1,58 @@
+<ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
+  <li>
+    <div class="collapsible-header"><i class="material-icons">list</i>Listar</div>
+    <div class="collapsible-body">
+
+      
+
+
+    </div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">person_add</i>Adicionar</div>
+    <div class="collapsible-body">
+
+      <form (ngSubmit)="addUser()" >
+
+          <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="icon_prefix" type="text" name= "nome" class="validate" [(ngModel)]="contato.nome">
+          <label for="icon_prefix">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">phone</i>
+          <input id="icon_telephone" name = "tetefone" type="number" class="validate" [(ngModel)]="contato.telefone">
+          <label for="icon_telephone">Telephone</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+      
+
+
+  <button id="envia" class="btn waves-effect waves-light " type="submit" name="action">Enviar
+    <i class="material-icons left">send</i>
+  </button>
+
+  </form>
+<ul>
+  <li *ngFor="let c of contatos | async">
+    {{c.nome + ' ' + c.telefone}}
+  </li>
+</ul>
+
+
+    </div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">settings</i>Editar</div>
+    <div class="collapsible-body">
+      <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+  </li>
+</ul>
