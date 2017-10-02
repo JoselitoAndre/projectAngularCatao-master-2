@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { Item } from '../item/item';
 
 
 
@@ -25,10 +26,22 @@ export class UsuarioComponent implements OnInit {
   ngOnInit() {
   }
 
+
+updateItem(key: string, value: any): void {
+   this.contatos.update(key, value)
+   this.contato = {};
+ }
+
   addUser(){
     console.log(this.contato);
     this.contatos.push(this.contato);
     this.contato = {};
+  }
+
+
+  listUser(){
+    return this.contatos;
+    
   }
 
 }

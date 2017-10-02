@@ -3,7 +3,13 @@
     <div class="collapsible-header"><i class="material-icons">list</i>Listar</div>
     <div class="collapsible-body">
 
-      
+         <ul>
+          <li *ngFor="let c of contatos | async">
+            {{'Nome:' + c.nome}}
+            {{' Telefone:' + c.telefone}}
+          </li>
+        </ul>
+
 
 
     </div>
@@ -12,7 +18,7 @@
     <div class="collapsible-header"><i class="material-icons">person_add</i>Adicionar</div>
     <div class="collapsible-body">
 
-      <form (ngSubmit)="addUser()" >
+     <form (ngSubmit)="addUser()" >
 
           <div class="row">
     <form class="col s12">
@@ -25,7 +31,7 @@
         <div class="input-field col s6">
           <i class="material-icons prefix">phone</i>
           <input id="icon_telephone" name = "tetefone" type="number" class="validate" [(ngModel)]="contato.telefone">
-          <label for="icon_telephone">Telephone</label>
+         <label for="icon_prefix">First Name</label>
         </div>
       </div>
     </form>
@@ -35,16 +41,13 @@
       
 
 
-  <button id="envia" class="btn waves-effect waves-light " type="submit" name="action">Enviar
-    <i class="material-icons left">send</i>
-  </button>
+      <button id="envia" class="btn waves-effect waves-light " type="submit" name="action">Enviar
+        <i class="material-icons left">send</i>
+      </button>
 
-  </form>
-<ul>
-  <li *ngFor="let c of contatos | async">
-    {{c.nome + ' ' + c.telefone}}
-  </li>
-</ul>
+      </form>
+
+
 
 
     </div>
@@ -52,7 +55,24 @@
   <li>
     <div class="collapsible-header"><i class="material-icons">settings</i>Editar</div>
     <div class="collapsible-body">
-      <p>Lorem ipsum dolor sit amet.</p>
+      
+ <form (ngSubmit)="updateItem()" >
+  <tr class="collection" *ngFor="let c of contatos | async">
+
+    
+    <textarea ng-model="list" ng-list="&#10;" ng-trim="false">{{c.nome}}</textarea>
+    <textarea ng-model="list" ng-list="&#10;" ng-trim="false">{{c.telefone}}</textarea>
+   
+
+</tr>
+      <button id="envia" class="btn waves-effect waves-light " type="submit" name="action">Enviar
+        <i class="material-icons left">send</i>
+      </button>
+ </form>
+
+    
+   
+
     </div>
   </li>
 </ul>
