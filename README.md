@@ -1,3 +1,4 @@
 # projectAngularCatao
 Projeto da disciplina TAP
-Joselio e Paulo
+
+Alunos: Joselito e  Paulo
